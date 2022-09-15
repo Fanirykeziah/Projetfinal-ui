@@ -1,0 +1,97 @@
+.user {
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid #007bff;
+}
+
+.company {
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid #28a745;  
+}
+
+.admin{
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid #ffc107;
+}
+
+.flexrow{
+    display: flex;
+    flex-direction: row;
+}
+
+.header{
+    border: 2px solid white;
+    border-radius: 5px;
+    width: 400px;
+    margin-left: 3%;
+    padding: 1% 2% 2% 2%;
+    margin-top: 3%;
+}
+
+.headerBody{
+    text-align: center;
+    color: white;
+}
+
+.logo{
+        width: 40px;
+        height: 40px;
+        float: right;
+        cursor: pointer;
+        border-radius: 50%;
+}
+
+.HomePageContainer1{
+    padding-bottom: 5%;
+    padding-top: 3%;
+    background-image:linear-gradient(to bottom right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(./image/meet.jpg);
+}
+
+.Title1{
+    text-align: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: -webkit-linear-gradient(left,#007bff, rgba(2, 2, 248, 0.452),rgb(112, 248, 0));
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-left: 15%;
+    
+}
+
+.row > img {
+    width: 100px;
+    margin-right: 10%;
+    margin-top: 2%;
+}
+  
+.title2 {
+    text-align: center;
+    margin-top: 3%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: -webkit-linear-gradient(left,#0e4b8d, rgba(2, 248, 35, 0.452),rgb(249, 253, 27));
+}
+
+.Title1 > h1 {
+    animation: h1 2s linear ;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+}
+
+@keyframes h1 {
+    0%{ 
+        transform: translateX(-90%);
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+

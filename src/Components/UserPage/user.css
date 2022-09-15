@@ -1,0 +1,50 @@
+table{
+    width: 90vw;
+    margin-left: 1.5%;
+    margin-top: 1%;
+}
+
+.menu > h1 {
+    text-align: center;
+}
+
+.btn3{
+    margin-left: 2%;
+    margin-bottom: 1%;
+}
+
+.filter{
+    margin-left: 5%;
+}
+
+.tete{
+    display: flex;
+    flex-direction: row;
+}
+
+.search1{
+    margin-left: 50%;
+}
+
+.search1 > input{
+    height: 38px;
+}
+
+.tab1{
+    border: 1px solid black;
+    padding: 1% 1% 1% 1%;
+    width: 1300px;
+    margin-left: 2%;
+}
+
+.btn4{
+    border: 0px;
+    background-color: rgb(255, 145, 0);
+    color: white;
+    width: 80px;
+    border-radius: 100%;
+}
+
+.btn2{
+    margin-left: 85%;
+}

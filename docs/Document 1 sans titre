@@ -1,0 +1,13 @@
+// Déroulement des codes dans le "Components" : 
+/*
+Le "landing page" se trouve dans le dossier LandingPage 
+Page de l'utilisateur dans UserPage 
+Page "devenir partenaire" dans LandingCompany
+Page administrateur dans Admin 
+Le dossier AdminOffers c'est celui qui contient la partie Offres dans la page de l'administrateur 
+Dossier Formulaire pour ajouter des nouveaux entreprises 
+Dossier AddNewMeet pour ajouter des nouveaux rendez-vous 
+Dossier AddOffers pour ajouter les nouveaux offres(seulement pour les administrateurs) 
+Dossier UpdateMeet pour modifier les rendez-vous
+Et UpdateOffers pour modifier les offres 
+*/ 

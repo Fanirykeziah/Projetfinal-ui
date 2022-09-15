@@ -1,0 +1,499 @@
+openapi: 3.0.3
+info:
+  title: MYAppointment-calendar-STD21059
+  description: Management of the appointment 
+  version: 1.0.11
+
+servers:
+  - url: https://localhost8080/jdbc
+  
+tags:
+  - name: Customer
+    description: About customer
+  - name: Company
+    description: Everything about company
+  - name: Meeting
+    description: Operations about user
+  - name: Offers
+    description: Offers to post company if user are not a customer and want add his company in the application 
+    
+paths:
+  /customer:
+    post:
+      tags:
+        - Customer
+      summary : Add new customer 
+      description: Add new customer
+      operationId: addNewCustomer
+      requestBody:
+        description: Create new Customer
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCustomer'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/customer'          
+        '405':
+          description: Invalid input
+  
+  /company:
+    get:
+      tags:
+        - Company
+      summary: Get all about company
+      description: Get all company
+      operationId: GetAllCompany
+      responses:
+        '200':
+          description: List of company
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/company'          
+        '400':
+          description: Bad request
+    post:
+      tags:
+        - Company
+      summary : Add new company
+      description: Add new company
+      operationId: addNewCompany
+      requestBody:
+        description: Create new Company
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCompany'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateCompany'
+        '405':
+          description: Invalid input
+
+  /company/{id}:
+    put:
+      tags:
+        - Company
+      summary: Update an existing company
+      description: Update an existing company by id
+      operationId: updateCompanyById
+      parameters:
+        - name: id
+          in: path
+          description: id of company that need to be update
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Update an existent company
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/company'
+        required: true
+      responses:
+        '200':
+          description: Updating company
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/company'
+        '400':
+          description: Invalid id 
+        '404':
+          description: company not found
+        '405':
+          description: Validation exception
+    delete:
+      tags:
+        - Company
+      summary: Delete company specified by id
+      description: delete company specified by id
+      operationId: deleteCompanyById
+      parameters:
+        - name: id
+          in: path
+          description: 'delete company with id'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted company successfull
+        '400':
+          description: Invalid id 
+        '404':
+          description: company not found
+        '405':
+          description: Validation exception
+  
+  /meet:
+    get:
+      tags:
+        - Meeting
+      summary: Get all about appointment
+      description: Get all appointment
+      operationId: GetAllAppointment
+      responses:
+        '200':
+          description: List of appointment
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/meet'          
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/meet'
+        '400':
+          description: Bad request
+    post:
+      tags:
+        - Meeting
+      summary : Add new appointment
+      description: Add new appointment
+      operationId: addNewAppointment
+      requestBody:
+        description: Create new Appointment
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMeet'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateMeet'
+        '405':
+          description: Invalid input
+
+  /meet/{id}:
+    put:
+      tags:
+        - Meeting
+      summary: Update an existing meet
+      description: Update an existing meet by id
+      operationId: updateMeetById
+      parameters:
+        - name: id
+          in: path
+          description: id of meet that need to be update
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Update an existent meet
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/meet'
+        required: true
+      responses:
+        '200':
+          description: Updating meet
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/meet'
+        '400':
+          description: Invalid id 
+        '404':
+          description: appointment not found
+        '405':
+          description: Validation exception
+    delete:
+      tags:
+        - Meeting
+      summary: Delete appointment specified by id
+      description: delete meet specified by id
+      operationId: deleteMeetById
+      parameters:
+        - name: id
+          in: path
+          description: 'delete appointment having this id'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Appointement deleted
+        '400':
+          description: Invalid id 
+        '404':
+          description: Appointment not found
+        '405':
+          description: Validation exception
+          
+  /offers:
+    get:
+      tags:
+        - Offers
+      summary: Get all offers
+      description: Get all offers
+      operationId: GetAllOffers
+      responses:
+        '200':
+          description: List of offers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/offers'          
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/offers'
+        '400':
+          description: Bad request
+    post:
+      tags:
+        - Offers
+      summary : Create new offers
+      description: Create new offers
+      operationId: CreateNewOffers
+      requestBody:
+        description: Create new offers
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOffers'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateOffers'
+        '405':
+          description: Invalid input
+  /offers/{id}:
+    put:
+      tags:
+        - Offers
+      summary: Update an existing offers
+      description: Update an existing offers by id
+      operationId: updateOffersById
+      parameters:
+        - name: id
+          in: path
+          description: id of offers that need to be update
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Update an existent offers
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/offers'
+        required: true
+      responses:
+        '200':
+          description: Updating sucessfull
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offers'
+        '400':
+          description: Invalid id 
+        '404':
+          description: offers not found or not exist
+        '405':
+          description: Validation exception
+    delete:
+      tags:
+        - Offers
+      summary: Delete offers specified by id
+      description: delete offers specified by id
+      operationId: deleteOffersById
+      parameters:
+        - name: id
+          in: path
+          description: 'delete offers with id'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: deleted successfull
+        '400':
+          description: Invalid id 
+        '404':
+          description: Offers not found or not exist
+        '405':
+          description: Validation exception
+    
+components:
+  schemas:
+    customer:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Rakoto
+        firstName:
+          type: string
+          example: Rabe
+        Email:
+          type: string
+          example: Rakoto@gmail.com
+        Mobile:
+          type: string
+          example: +216 034 41 596 56
+    CreateCustomer:
+      type: object
+      properties:
+        name:
+          type: string
+          example: name
+        firstName:
+          type: string
+          example: first_name
+        Email:
+          type: string
+          example: email
+        Mobile:
+          type: string
+          example: mobile
+    company:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        responsableName:
+          type: string
+          example: RANDRIANASOLO
+        responsableFirstName:
+          type: string
+          example: Faniry
+        title:
+          type: string
+          example: MyAgenda
+        Description:
+          type: string
+          example: this application help you to find friend 
+        Email:
+          type: string
+          example: Rakoto@gmail.com
+        Mobile:
+          type: string
+          example: +216 034 41 596 56
+    CreateCompany:
+      type: object
+      properties:
+        responsableName:
+          type: string
+          example: responsableName
+        responsableFirstName:
+          type: string
+          example: responsableFirtsName
+        title:
+          type: string
+          example: title
+        Description:
+          type: string
+          example: description
+        Email:
+          type: string
+          example: email
+        Mobile:
+          type: string
+          example: mobile
+    meet:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        Type:
+          type: string
+          example: professional
+        Location:
+          type: string
+          example: Ankorondrano
+        Date:
+          type: string
+          format: date
+          example: 2022/06/03
+        Time:
+          type: string
+          format: time
+          example: 14h05
+        Description:
+          type: string
+          example: ijery maso
+    CreateMeet:
+      type: object
+      properties:
+        Type:
+          type: string
+          example: type
+        Location:
+          type: string
+          example: location
+        Date:
+          type: string
+          format: date
+          example: date
+        Time:
+          type: string
+          format: time
+          example: time
+        Description:
+          type: string
+          example: description
+    offers:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: MyAgenda
+        Description:
+          type: string
+          example: This application manage your appointment
+        Amount:
+          type: string
+          example: 20.000ar/mois
+    CreateOffers:
+      type: object
+      properties:
+        title:
+          type: string
+          example: title
+        Description:
+          type: string
+          example: description
+        Amount:
+          type: string
+          example: amount
+        
+      

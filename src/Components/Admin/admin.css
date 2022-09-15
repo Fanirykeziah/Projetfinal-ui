@@ -1,0 +1,27 @@
+.btn7{
+    border: 0px;
+    background-color: red;
+    color: rgb(247, 243, 243);
+    width: 90px;
+    border-radius: 100%;
+}
+
+.table{
+    margin-left: 3%;
+}
+
+.te{
+    margin-left: 5%;
+}
+
+.btn8{
+    margin-left: 12%;
+}
+
+.btn9{
+    margin-left: 60%;
+}
+
+.search > input {
+    height: 38px;
+}
